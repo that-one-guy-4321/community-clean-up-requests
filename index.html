@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Report and track community clean up requests.">
+  <title>Community Clean Up Requests</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <script type="module" src="./js/app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#home">Clean Community</a>
+      <nav aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#manage">Manage Records</a>
+        <a href="#about">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section id="home" class="hero">
+      <div class="container">
+        <p class="eyebrow">Community project</p>
+        <h1>Community Clean Up Requests</h1>
+        <p>
+          Report waste and maintenance issues in shared community spaces.
+          Track each request from reporting to completion.
+        </p>
+        <a class="button button-primary" href="#manage">Manage requests</a>
+      </div>
+    </section>
+
+    <section id="manage" class="container section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Request dashboard</p>
+          <h2>Manage Records</h2>
+          <p>Add a clean up request or find an existing one.</p>
+        </div>
+      </div>
+
+      <div class="content-grid">
+        <section class="panel form-panel" aria-labelledby="form-heading">
+          <h3 id="form-heading">Add a request</h3>
+
+          <form id="record-form" novalidate>
+            <div class="field">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                minlength="3"
+                maxlength="80"
+                placeholder="e.g. Rubbish beside the community hall"
+                required
+              >
+              <small>3 to 80 characters</small>
+            </div>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" name="category" required>
+                <option value="">Choose a category</option>
+                <option value="Waste">Waste</option>
+                <option value="Drainage">Drainage</option>
+                <option value="Public space">Public space</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                minlength="5"
+                maxlength="300"
+                rows="4"
+                placeholder="Describe the issue and where it is."
+                required
+              ></textarea>
+              <small>5 to 300 characters</small>
+            </div>
+
+            <div class="field">
+              <label for="status">Status</label>
+              <select id="status" name="status" required>
+                <option value="Pending">Pending</option>
+                <option value="In progress">In progress</option>
+                <option value="Completed">Completed</option>
+              </select>
+            </div>
+
+            <div class="form-actions">
+              <button id="submit-button" class="button button-primary" type="submit">
+                Add request
+              </button>
+              <button id="cancel-edit" class="button button-secondary" type="button" hidden>
+                Cancel edit
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <section class="records-area" aria-labelledby="records-heading">
+          <div class="panel filters-panel">
+            <h3 id="records-heading">Requests</h3>
+            <div class="filter-grid">
+              <div class="field">
+                <label for="search">Search by title</label>
+                <input id="search" type="search" placeholder="Search requests">
+              </div>
+              <div class="field">
+                <label for="status-filter">Filter by status</label>
+                <select id="status-filter">
+                  <option value="All">All statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="In progress">In progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+            </div>
+            <p id="record-count" class="record-count" aria-live="polite"></p>
+          </div>
+
+          <p id="message" class="message" role="status" aria-live="polite"></p>
+          <div id="record-list" class="record-grid"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container section">
+        <p class="eyebrow">About this project</p>
+        <h2>About</h2>
+        <div class="panel about-panel">
+          <p><strong>Project name:</strong> Community Clean Up Requests</p>
+          <p><strong>Student number:</strong> 202503687</p>
+          <p>This version uses browser demonstration data stored in localStorage.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Community Clean Up Requests · Frontend Development Activity</p>
+    </div>
+  </footer>
+</body>
+</html>
